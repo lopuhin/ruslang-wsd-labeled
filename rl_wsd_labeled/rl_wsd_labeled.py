@@ -1,7 +1,7 @@
 import os.path
 
 
-__all__ = ['ROOT', 'contexts_filename', 'get_labeled_contexts']
+__all__ = ['ROOT', 'contexts_filename', 'get_contexts']
 
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -16,7 +16,7 @@ def contexts_filename(pos, corpus, word):
     return os.path.join(ROOT, pos, corpus, '{}.txt'.format(word))
 
 
-def get_labeled_contexts(filename):
+def get_contexts(filename):
     ''' Read results from file with labeled data.
     Skip undefined or "other" senses.
     If there are two annotators, return only contexts

@@ -29,7 +29,7 @@ A python interface is provided. Intall the package first, and then::
 
     >>> import rl_wsd_labeled
     >>> f = rl_wsd_labeled.contexts_filename('nouns', 'RuTenTen', 'горшок')
-    >>> rl_wsd_labeled.get_labeled_contexts(f)
+    >>> rl_wsd_labeled.get_contexts(f)
 
     ({'1': 'Округлый глиняный сосуд для приготовления пищи (печной горшок)',
       '2': 'Расширяющийся кверху сосуд с отверстием в дне (цветочный горшок)',
