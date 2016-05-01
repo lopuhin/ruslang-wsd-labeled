@@ -25,7 +25,8 @@ Contexts are stored in ``rl_wsd_labeled/``::
     └── verbs
         └── RuTenTen
 
-A python interface is provided. Intall the package first, and then::
+A python interface is provided. Intall the package first, and then
+in order to get labeled contexts::
 
     >>> import rl_wsd_labeled
     >>> f = rl_wsd_labeled.contexts_filename('nouns', 'RuTenTen', 'горшок')
@@ -44,3 +45,12 @@ A python interface is provided. Intall the package first, and then::
         ' с вином в трюме торгового корабля, попавшего в бурю и разбившегося о скалы.'),
       '1')
      ])
+
+Apart from senses, there are two special annotations: "0" means
+"I don't know/the context is unclear/the contexts is invalid", and "max sense + 1"
+mean "other sense, not listed among given senses". Contexts marked as "0" or "other"
+are not returned, unless ``with_skipped=True`` is passed.
+If there was more then one annotator, contexts where annotators did not agree are also
+not included. There is a function ``rl_wsd_labeled.get_agreement`` that returns the
+ratio of senses where where both annotators gave either the
+same concrete sense, or both skipped the senses (so "0" and "other" are considered equal).
