@@ -25,6 +25,13 @@ def get_contexts(filename, with_skipped=False):
     Returns senses, a dictionary of {sense_id: sense definition},
     and a list of contests, each context as ((left, word, right), sense_id).
     '''
+    if filename.endswith('.json'):
+        assert not with_skipped
+        with open(filename, 'rt') as f:
+            senses, w_d = json.load(f)
+            other = max(senses, key=int)
+            w_d = [(ctx, s) for ctx, s in w_d if s not in {'0', other}]
+            return senses, w_d
     w_d = []
     with open(filename, 'r') as f:
         senses = {}
