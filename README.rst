@@ -19,14 +19,19 @@ Annotators (words):
 Contexts are stored in ``rl_wsd_labeled/``::
 
     rl_wsd_labeled
+    ├── adjectives
+    │   └── RuTenTen
     ├── nouns
     │   ├── RNC
     │   └── RuTenTen
     └── verbs
         └── RuTenTen
 
-A python interface is provided. Intall the package first, and then
-in order to get labeled contexts::
+A python interface is provided. Intall the package first::
+
+    pip install rl_wsd_labeled
+
+and then in order to get labeled contexts::
 
     >>> import rl_wsd_labeled
     >>> f = rl_wsd_labeled.contexts_filename('nouns', 'RuTenTen', 'горшок')
